@@ -1,8 +1,8 @@
 vendor/
 tmp/
 storage/
-config/.env
-config/*.yaml
+logs/*
+build
 
 
 # IDE and Editor files
