@@ -1,0 +1,54 @@
+2026-02-06T04:28:09.148Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-06T04:28:09.161Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-06T04:28:09.162Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-06T04:28:09.162Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-06T04:28:09.162Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-06T04:29:10.553Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521505520001", "statuscode": "200", "method": "GET", "path": "/admin/login"}
+2026-02-06T04:29:10.631Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521506220002", "statuscode": "200", "method": "GET", "path": "/admin/assets/login/dist/all.min.css"}
+2026-02-06T04:29:10.631Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521506250003", "statuscode": "200", "method": "GET", "path": "/admin/assets/login/dist/all.min.js"}
+2026-02-06T04:29:15.020Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521548570004", "statuscode": "200", "method": "POST", "path": "/admin/signin"}
+2026-02-06T04:29:15.087Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550870007", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/img/avatar04.png"}
+2026-02-06T04:29:15.087Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550840005", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/all.min.506636f003.js"}
+2026-02-06T04:29:15.088Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550870008", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/datatable.min.43c12443cf.js"}
+2026-02-06T04:29:15.090Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550850006", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/css/all.min.165468e1df.css"}
+2026-02-06T04:29:15.093Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550930009", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/tree.min.b68a8b6689.js"}
+2026-02-06T04:29:15.110Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521551090011", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/treeview.min.3095cd8c12.js"}
+2026-02-06T04:29:15.117Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521550990010", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/form.min.4022a41f70.js"}
+2026-02-06T04:29:15.284Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521552830012", "statuscode": "200", "method": "GET", "path": "/admin/assets/chart.min.js"}
+2026-02-06T04:29:15.288Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521552880013", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/js/all_2.min.1cd3070239.js"}
+2026-02-06T04:29:15.296Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521552950014", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/fonts/fontawesome-webfont.woff2"}
+2026-02-06T04:29:15.301Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521553000015", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/css/fonts/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf"}
+2026-02-06T04:29:15.368Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521553680017", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/css/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf"}
+2026-02-06T04:29:15.368Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521553680018", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/css/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdr.ttf"}
+2026-02-06T04:29:15.368Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521553680016", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/fonts/ionicons.ttf"}
+2026-02-06T04:29:15.384Z	[34mINFO[0m	controller/handler.go:25	[GoAdmin] access log	{"traceID": "ac1c01060063717703521553840019", "statuscode": "200", "method": "GET", "path": "/admin/assets/dist/css/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf"}
+2026-02-06T04:34:09.649Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-06T04:34:09.659Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-06T04:34:09.665Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-06T04:34:09.665Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-06T04:34:09.665Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-06T04:34:14.773Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-06T04:34:14.780Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-06T04:34:14.781Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-06T04:34:14.781Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-06T04:34:14.781Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-06T04:34:18.137Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-06T04:34:18.142Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-06T04:34:18.144Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-06T04:34:18.144Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-06T04:34:18.144Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-06T04:39:06.929Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-06T04:39:06.940Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-06T04:39:06.943Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-06T04:39:06.943Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-06T04:39:06.943Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-15T08:26:04.058Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-15T08:26:04.067Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-15T08:26:04.068Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-15T08:26:04.069Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-15T08:26:04.069Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-15T08:34:43.544Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-15T08:34:43.552Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
