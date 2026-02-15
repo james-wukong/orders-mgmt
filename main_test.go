@@ -15,7 +15,7 @@ import (
 
 // Black box testing
 func TestMainBlackBox(t *testing.T) {
-	cfg := config.ReadFromJson("./config.yml")
+	cfg := config.ReadFromYaml("./config.yml")
 	tests.BlackBoxTestSuit(t, gin.NewHandler, cfg.Databases, tables.Generators, func(cfg config.DatabaseList) {
 		// Data cleaner of the framework
 		tests.Cleaner(cfg)
