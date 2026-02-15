@@ -18,7 +18,7 @@ func TestMainBlackBox(t *testing.T) {
 	cfg := config.ReadFromYaml("./config.yml")
 	tests.BlackBoxTestSuit(t, gin.NewHandler, cfg.Databases, tables.Generators, func(cfg config.DatabaseList) {
 		// Data cleaner of the framework
-		// tests.Cleaner(cfg)
+		tests.Cleaner(cfg)
 		// Clean your own data:
 		// ...
 	}, func(e *httpexpect.Expect) {
