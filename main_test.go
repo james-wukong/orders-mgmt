@@ -1,20 +1,21 @@
 package main
 
 import (
-	"github.com/james-wukong/orders-mgmt/tables"
+	"log"
+	"testing"
+
 	"github.com/GoAdminGroup/go-admin/modules/config"
 	"github.com/GoAdminGroup/go-admin/tests"
 	"github.com/GoAdminGroup/go-admin/tests/common"
 	"github.com/GoAdminGroup/go-admin/tests/frameworks/gin"
 	"github.com/GoAdminGroup/go-admin/tests/web"
 	"github.com/gavv/httpexpect"
-	"log"
-	"testing"
+	"github.com/james-wukong/orders-mgmt/tables"
 )
 
 // Black box testing
 func TestMainBlackBox(t *testing.T) {
-	cfg := config.ReadFromJson("./config.json")
+	cfg := config.ReadFromJson("./config.yml")
 	tests.BlackBoxTestSuit(t, gin.NewHandler, cfg.Databases, tables.Generators, func(cfg config.DatabaseList) {
 		// Data cleaner of the framework
 		tests.Cleaner(cfg)
