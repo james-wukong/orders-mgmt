@@ -1,0 +1,1693 @@
+2026-02-15T05:28:46.111Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: relation "public.categories" does not exist at column 38 (42P01)	{"traceID": "ac1c01021336117711333260760026"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T05:45:39.883Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 37 (42703)	{"traceID": "ac1c01022853517711343398530001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T05:50:36.499Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_name does not exist at column 37 (42703)	{"traceID": "ac1c01023270617711346364530001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:28:49.598Z	[31mERROR[0m	logger/logger.go:313	insert data error: pq: null value in column "restaurant_id" of relation "categories" violates not-null constraint (23502)	{"traceID": "ac1c01026362517711369295260004"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).NewForm
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/new.go:118
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).NewForm
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/new.go:121
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:38:28.661Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error interface conversion: interface {} is nil, not template.HTML	{"traceID": "ac1c01027091617711375086130003"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+runtime.panicdottypeE
+	/usr/local/go/src/runtime/iface.go:275
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getTempModelData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:328
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:575
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).NewForm
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/new.go:167
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).NewForm
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/new.go:121
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:46:52.166Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 189 (42703)	{"traceID": "ac1c01027814617711380121350001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:50:55.642Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: syntax error at or near "." at column 161 (42601)	{"traceID": "ac1c01028096317711382556170001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:51:06.205Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurants_name does not exist at column 57 (42703)	{"traceID": "ac1c01028127917711382661800001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:53:43.204Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_name_display does not exist at column 57 (42703)	{"traceID": "ac1c01028346217711384231780001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:55:12.435Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028449617711385124050001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:55:55.235Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 207 (42703)	{"traceID": "ac1c01028530917711385552120001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:55:57.963Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 207 (42703)	{"traceID": "ac1c01028530917711385579310002"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:55:58.870Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 207 (42703)	{"traceID": "ac1c01028530917711385588600003"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:55:59.535Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 207 (42703)	{"traceID": "ac1c01028530917711385595220004"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:56:00.266Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 207 (42703)	{"traceID": "ac1c01028530917711385602530005"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:56:50.803Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028640817711386107820001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:56:55.248Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028640817711386152320002"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:56:57.275Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028640817711386172600003"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:57:37.530Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028768517711386575080001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:57:38.854Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028768517711386588390002"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:57:39.472Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028768517711386594600003"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:57:39.722Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028768517711386597150004"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:57:39.932Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01028768517711386599200005"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T06:59:48.653Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: syntax error at or near "." at column 161 (42601)	{"traceID": "ac1c01028958017711387885590001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T07:01:30.022Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: syntax error at or near "." at column 141 (42601)	{"traceID": "ac1c01029076117711388899920001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T07:06:42.602Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error pq: column restaurants.restaurant_id does not exist at column 57 (42703)	{"traceID": "ac1c01029567317711392025650001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+github.com/GoAdminGroup/go-admin/modules/db.CommonQuery
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/performer.go:20
+github.com/GoAdminGroup/go-admin/modules/db.(*Postgresql).QueryWithConnection
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/db/postgresql.go:51
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:566
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
+2026-02-15T07:13:53.812Z	[31mERROR[0m	logger/logger.go:313	GlobalDeferHandler error interface conversion: interface {} is map[string]interface {}, not template.HTML	{"traceID": "ac1c01020342517711396337890001"}
+github.com/GoAdminGroup/go-admin/modules/logger.ErrorCtx
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/logger/logger.go:313
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).GlobalDeferHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/handler.go:32
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:783
+runtime.panicdottypeE
+	/usr/local/go/src/runtime/iface.go:275
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getTempModelData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:328
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).getDataFromDatabase
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:575
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table.(*DefaultTable).GetData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/table/default.go:149
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTableData
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:71
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).showTable
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:103
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).ShowInfo
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/controller/show.go:61
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).initRouter.Middleware.(*Invoker).Middleware.func6
+	/app/vendor/github.com/GoAdminGroup/go-admin/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).themeMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:141
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).traceIDMiddleware
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:123
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/app/vendor/github.com/GoAdminGroup/go-admin/plugins/admin/router.go:111
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/app/vendor/github.com/GoAdminGroup/go-admin/context/context.go:105
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/app/vendor/github.com/GoAdminGroup/go-admin/adapter/gin/gin.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/app/vendor/github.com/gin-gonic/gin/recovery.go:92
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/app/vendor/github.com/gin-gonic/gin/logger.go:249
+github.com/gin-gonic/gin.(*Context).Next
+	/app/vendor/github.com/gin-gonic/gin/context.go:192
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/app/vendor/github.com/gin-gonic/gin/gin.go:689
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/app/vendor/github.com/gin-gonic/gin/gin.go:643
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:3340
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:2109
