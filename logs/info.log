@@ -993,3 +993,8 @@
 2026-02-15T08:03:02.907Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
 2026-02-15T08:03:02.908Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
 2026-02-15T08:03:02.908Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-15T08:32:45.451Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-15T08:32:45.458Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-15T08:32:45.460Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-15T08:32:45.460Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-15T08:32:45.460Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
