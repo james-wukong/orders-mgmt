@@ -52,3 +52,8 @@
 2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
 2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
 2026-02-15T08:34:43.553Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
+2026-02-15T08:38:28.622Z	[34mINFO[0m	engine/engine.go:407	Initialize database connections
+2026-02-15T08:38:28.628Z	[34mINFO[0m	engine/engine.go:407	Initialize configuration
+2026-02-15T08:38:28.629Z	[34mINFO[0m	engine/engine.go:407	Initialize navigation buttons
+2026-02-15T08:38:28.630Z	[34mINFO[0m	engine/engine.go:407	Initialize plugins
+2026-02-15T08:38:28.630Z	[34mINFO[0m	engine/engine.go:407	Initialize success🍺🍺
