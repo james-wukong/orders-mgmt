@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"io"
 	"log"
 	"os"
@@ -15,7 +16,6 @@ import (
 	"github.com/GoAdminGroup/go-admin/template/chartjs"
 	"github.com/gin-gonic/gin"
 
-	"github.com/james-wukong/orders-mgmt/models"
 	"github.com/james-wukong/orders-mgmt/pages"
 	"github.com/james-wukong/orders-mgmt/tables"
 )
@@ -31,11 +31,21 @@ func startServer() {
 	r := gin.Default()
 
 	template.AddComp(chartjs.NewChart())
-
 	eng := engine.Default()
 
-	if err := eng.AddConfigFromYAML("./config.yml").
+	eng.AddConfigFromYAML("./config.yml")
+	// Get the initialized connection
+	conn := eng.PostgresqlConnection()
+
+	// Check if connection is valid
+	if conn == nil {
+		panic(errors.New("database connection is nil"))
+	}
+
+	// Pass the connection to get generators
+	if err := eng.
 		AddGenerators(tables.Generators).
+		AddGenerators(tables.GetGenerators(conn)).
 		Use(r); err != nil {
 		panic(err)
 	}
@@ -46,8 +56,6 @@ func startServer() {
 	eng.HTMLFile("GET", "/admin/hello", "./html/hello.tmpl", map[string]interface{}{
 		"msg": "Hello world",
 	})
-
-	models.Init(eng.PostgresqlConnection())
 
 	_ = r.Run(":8081")
 

@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/GoAdminGroup/go-admin/modules/config"
+	"github.com/GoAdminGroup/go-admin/modules/db"
 	"github.com/GoAdminGroup/go-admin/tests"
 	"github.com/GoAdminGroup/go-admin/tests/common"
 	"github.com/GoAdminGroup/go-admin/tests/frameworks/gin"
@@ -15,8 +16,9 @@ import (
 
 // Black box testing
 func TestMainBlackBox(t *testing.T) {
-	cfg := config.ReadFromYaml("./config.yml")
-	tests.BlackBoxTestSuit(t, gin.NewHandler, cfg.Databases, tables.Generators, func(cfg config.DatabaseList) {
+	cfg := config.ReadFromJson("./config.json")
+	dbConn := db.GetConnectionByDriver("postgresql")
+	tests.BlackBoxTestSuit(t, gin.NewHandler, cfg.Databases, tables.GetGenerators(dbConn), func(cfg config.DatabaseList) {
 		// Data cleaner of the framework
 		tests.Cleaner(cfg)
 		// Clean your own data:

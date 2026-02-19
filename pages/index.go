@@ -1,59 +1,43 @@
 package pages
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	tmpl "github.com/GoAdminGroup/go-admin/template"
-	"github.com/GoAdminGroup/go-admin/template/chartjs"
-	"github.com/GoAdminGroup/go-admin/template/icon"
-	"github.com/GoAdminGroup/go-admin/template/types"
-	"github.com/GoAdminGroup/themes/adminlte/components/chart_legend"
-	"github.com/GoAdminGroup/themes/adminlte/components/description"
-	"github.com/GoAdminGroup/themes/adminlte/components/infobox"
-	"github.com/GoAdminGroup/themes/adminlte/components/productlist"
-	"github.com/GoAdminGroup/themes/adminlte/components/progress_group"
-	"github.com/GoAdminGroup/themes/adminlte/components/smallbox"
 	"html/template"
+
+	"github.com/GoAdminGroup/go-admin/context"
+	template2 "github.com/GoAdminGroup/go-admin/template"
+	"github.com/GoAdminGroup/go-admin/template/chartjs"
+	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/GoAdminGroup/themes/sword/components/card"
+	"github.com/GoAdminGroup/themes/sword/components/chart_legend"
+	"github.com/GoAdminGroup/themes/sword/components/description"
+	"github.com/GoAdminGroup/themes/sword/components/progress_group"
 )
 
 func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 
-	components := tmpl.Default(ctx)
+	components := template2.Default(ctx)
 	colComp := components.Col()
 
 	/**************************
 	 * Info Box
 	/**************************/
 
-	infobox1 := infobox.New().
-		SetText("CPU TRAFFIC").
-		SetColor("aqua").
-		SetNumber("100").
-		SetIcon("ion-ios-gear-outline").
-		GetContent()
+	cardcard := card.New().
+		SetTitle("TOTAL REVENUE").
+		SetSubTitle("¥ 113,340").
+		SetAction(template.HTML(`<i aria-label="图标: info-circle-o" class="anticon anticon-info-circle-o"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg></i>`)).
+		SetContent(template.HTML(`<div><div title="" style="margin-right: 16px;"><span><span>Week Compare</span><span style="margin-left: 8px;">12%</span></span><span style="color: #f5222d;margin-left: 4px;top: 1px;"><i style="font-size: 12px;" aria-label="图标: caret-up" class="anticon anticon-caret-up"><svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg></i></span></div><div class="antd-pro-pages-dashboard-analysis-components-trend-index-trendItem" title=""><span><span>Day Compare</span><span style="margin-left: 8px;">11%</span></span><span style="color: #52c41a;margin-left: 4px;top: 1px;"><i style="font-size: 12px;" aria-label="图标: caret-down" class="anticon anticon-caret-down"><svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg></i></span></div></div>`)).
+		SetFooter(template.HTML(`TOTAL DAY REVENUE <strong style="margin-left:8px;">$11,325</strong>`))
+	infobox := cardcard.GetContent()
 
-	infobox2 := infobox.New().
-		SetText("Likes").
-		SetColor("red").
-		SetNumber("1030.00<small>$</small>").
-		SetIcon(icon.GooglePlus).
-		GetContent()
+	infobox2 := cardcard.GetContent()
 
-	infobox3 := infobox.New().
-		SetText("Sales").
-		SetColor("green").
-		SetNumber("760").
-		SetIcon("ion-ios-cart-outline").
-		GetContent()
+	infobox3 := cardcard.GetContent()
 
-	infobox4 := infobox.New().
-		SetText("New Members").
-		SetColor("yellow").
-		SetNumber("2,349").
-		SetIcon("ion-ios-people-outline"). // svg is ok
-		GetContent()
+	infobox4 := cardcard.GetContent()
 
-	var size = types.SizeMD(3).SM(6).XS(12)
-	infoboxCol1 := colComp.SetSize(size).SetContent(infobox1).GetContent()
+	var size = map[string]string{"md": "3", "sm": "6", "xs": "12"}
+	infoboxCol1 := colComp.SetSize(size).SetContent(infobox).GetContent()
 	infoboxCol2 := colComp.SetSize(size).SetContent(infobox2).GetContent()
 	infoboxCol3 := colComp.SetSize(size).SetContent(infobox3).GetContent()
 	infoboxCol4 := colComp.SetSize(size).SetContent(infobox4).GetContent()
@@ -63,97 +47,7 @@ func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 	 * Box
 	/**************************/
 
-	table := components.Table().SetType("table").SetInfoList([]map[string]types.InfoItem{
-		{
-			"Order ID":   {Content: "OR9842"},
-			"Item":       {Content: "Call of Duty IV"},
-			"Status":     {Content: "shipped"},
-			"Popularity": {Content: "90%"},
-		}, {
-			"Order ID":   {Content: "OR9842"},
-			"Item":       {Content: "Call of Duty IV"},
-			"Status":     {Content: "shipped"},
-			"Popularity": {Content: "90%"},
-		}, {
-			"Order ID":   {Content: "OR9842"},
-			"Item":       {Content: "Call of Duty IV"},
-			"Status":     {Content: "shipped"},
-			"Popularity": {Content: "90%"},
-		}, {
-			"Order ID":   {Content: "OR9842"},
-			"Item":       {Content: "Call of Duty IV"},
-			"Status":     {Content: "shipped"},
-			"Popularity": {Content: "90%"},
-		},
-	}).SetThead(types.Thead{
-		{Head: "Order ID"},
-		{Head: "Item"},
-		{Head: "Status"},
-		{Head: "Popularity"},
-	}).GetContent()
-
-	boxInfo := components.Box().
-		WithHeadBorder().
-		SetHeader("Latest Orders").
-		SetHeadColor("#f7f7f7").
-		SetBody(table).
-		SetFooter(`<div class="clearfix"><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">处理订单</a><a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">查看所有新订单</a> </div>`).
-		GetContent()
-
-	tableCol := colComp.SetSize(types.SizeMD(8)).SetContent(row1 + boxInfo).GetContent()
-
-	/**************************
-	 * Product List
-	/**************************/
-
-	productList := productlist.New().SetData([]map[string]string{
-		{
-			"img":         "//adminlte.io/themes/AdminLTE/dist/img/default-50x50.gif",
-			"title":       "GoAdmin",
-			"has_tabel":   "true",
-			"labeltype":   "warning",
-			"label":       "free",
-			"description": `a framework help you build the dataviz system`,
-		}, {
-			"img":         "//adminlte.io/themes/AdminLTE/dist/img/default-50x50.gif",
-			"title":       "GoAdmin",
-			"has_tabel":   "true",
-			"labeltype":   "warning",
-			"label":       "free",
-			"description": `a framework help you build the dataviz system`,
-		}, {
-			"img":         "//adminlte.io/themes/AdminLTE/dist/img/default-50x50.gif",
-			"title":       "GoAdmin",
-			"has_tabel":   "true",
-			"labeltype":   "warning",
-			"label":       "free",
-			"description": `a framework help you build the dataviz system`,
-		}, {
-			"img":         "//adminlte.io/themes/AdminLTE/dist/img/default-50x50.gif",
-			"title":       "GoAdmin",
-			"has_tabel":   "true",
-			"labeltype":   "warning",
-			"label":       "free",
-			"description": `a framework help you build the dataviz system`,
-		},
-	}).GetContent()
-
-	boxWarning := components.Box().SetTheme("warning").WithHeadBorder().SetHeader("Recently Added Products").
-		SetBody(productList).
-		SetFooter(`<a href="javascript:void(0)" class="uppercase">View All Products</a>`).
-		GetContent()
-
-	newsCol := colComp.SetSize(types.SizeMD(4)).SetContent(boxWarning).GetContent()
-
-	row5 := components.Row().SetContent(tableCol + newsCol).GetContent()
-
-	/**************************
-	 * Box
-	/**************************/
-
-	line := chartjs.Line()
-
-	lineChart := line.
+	lineChart := chartjs.Line().
 		SetID("salechart").
 		SetHeight(180).
 		SetTitle("Sales: 1 Jan, 2019 - 30 Jul, 2019").
@@ -246,7 +140,7 @@ func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 		SetColor("green").
 		GetContent()
 
-	size2 := types.SizeSM(3).XS(6)
+	size2 := map[string]string{"sm": "3", "xs": "6"}
 	boxInternalCol3 := colComp.SetContent(description1).SetSize(size2).GetContent()
 	boxInternalCol4 := colComp.SetContent(description2).SetSize(size2).GetContent()
 	boxInternalCol5 := colComp.SetContent(description3).SetSize(size2).GetContent()
@@ -263,22 +157,6 @@ func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 	row2 := components.Row().SetContent(boxcol).GetContent()
 
 	/**************************
-	 * Small Box
-	/**************************/
-
-	smallbox1 := smallbox.New().SetColor("blue").SetIcon("ion-ios-gear-outline").SetUrl("/").SetTitle("new users").SetValue("345￥").GetContent()
-	smallbox2 := smallbox.New().SetColor("yellow").SetIcon("ion-ios-cart-outline").SetUrl("/").SetTitle("new users").SetValue("80%").GetContent()
-	smallbox3 := smallbox.New().SetColor("red").SetIcon("fa-user").SetUrl("/").SetTitle("new users").SetValue("645￥").GetContent()
-	smallbox4 := smallbox.New().SetColor("green").SetIcon("ion-ios-cart-outline").SetUrl("/").SetTitle("new users").SetValue("889￥").GetContent()
-
-	col1 := colComp.SetSize(size).SetContent(smallbox1).GetContent()
-	col2 := colComp.SetSize(size).SetContent(smallbox2).GetContent()
-	col3 := colComp.SetSize(size).SetContent(smallbox3).GetContent()
-	col4 := colComp.SetSize(size).SetContent(smallbox4).GetContent()
-
-	row3 := components.Row().SetContent(col1 + col2 + col3 + col4).GetContent()
-
-	/**************************
 	 * Pie Chart
 	/**************************/
 
@@ -292,7 +170,6 @@ func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 			"rgb(255, 205, 86)", "rgb(54, 162, 235)", "rgb(255, 99, 132)", "rgb(255, 205, 86)", "rgb(54, 162, 235)", "rgb(255, 99, 132)",
 		}).
 		GetContent()
-
 	legend := chart_legend.New().SetData([]map[string]string{
 		{
 			"label": " Chrome",
@@ -387,7 +264,7 @@ like Aldus PageMaker including versions of Lorem Ipsum.
 	row4 := components.Row().SetContent(col5 + col6).GetContent()
 
 	return types.Panel{
-		Content:     row3 + row2 + row5 + row4,
+		Content:     row1 + row2 + row4,
 		Title:       "Dashboard",
 		Description: "dashboard example",
 	}, nil
