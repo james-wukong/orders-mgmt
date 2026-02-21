@@ -1,15 +1,19 @@
 package tables
 
 import (
+	"database/sql"
+	"errors"
 	"fmt"
 
 	"github.com/GoAdminGroup/go-admin/context"    // 需导入此包
 	"github.com/GoAdminGroup/go-admin/modules/db" // 需导入此包
 
+	form2 "github.com/GoAdminGroup/go-admin/plugins/admin/modules/form"
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
 	selection "github.com/GoAdminGroup/go-admin/template/types/form/select"
+	models2 "github.com/james-wukong/orders-mgmt/internal/models"
 )
 
 func GetMenuitemsTable(dbConn db.Connection) table.Generator {
@@ -18,16 +22,17 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		menuItems := table.NewDefaultTable(ctx, table.DefaultConfigWithDriver("postgresql"))
 
 		info := menuItems.GetInfo().HideFilterArea()
-		// info.AddField("ID", "id", db.UUID).
-		// 	FieldDisplay(func(value types.FieldModel) interface{} {
-		// 		if val, ok := value.Row["id"].(string); ok {
-		// 			return val
-		// 		}
-		// 		if bytes, ok := value.Row["id"].([]byte); ok {
-		// 			return string(bytes)
-		// 		}
-		// 		return value.Row["id"]
-		// 	})
+		info.AddField("ID", "id", db.UUID).
+			FieldDisplay(func(value types.FieldModel) interface{} {
+				if val, ok := value.Row["id"].(string); ok {
+					return val
+				}
+				if bytes, ok := value.Row["id"].([]byte); ok {
+					return string(bytes)
+				}
+				return value.Row["id"]
+			}).
+			FieldHide()
 		info.AddField("Restaurant Name", "name", db.Varchar).
 			// SetTable("restaurants").
 			FieldJoin(types.Join{
@@ -45,6 +50,7 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 				return value.Row["restaurants_goadmin_join_name"]
 			}).
 			FieldSortable()
+
 		info.AddField("Category Name", "name", db.Varchar).
 			// SetTable("restaurants").
 			FieldJoin(types.Join{
@@ -66,51 +72,15 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		info.AddField("Category Slug", "slug", db.Varchar).FieldSortable()
 		info.AddField("Price", "price", db.Float).FieldSortable()
 		info.AddField("Discount Price", "discount_price", db.Float).FieldSortable()
-		info.AddField("Is Vegetarian", "is_vegetarian", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_vegetarian"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
-		info.AddField("Is Vegan", "is_vegan", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_vegan"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
-		info.AddField("Is Glueten Free", "is_glueten_free", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_glueten_free"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
-		info.AddField("Is Spicy", "is_spicy", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_spicy"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
+		info.AddField("Is Vegetarian", "is_vegetarian", db.Bool).FieldBool("true", "false")
+		info.AddField("Is Vegan", "is_vegan", db.Bool).FieldBool("true", "false")
+		info.AddField("Is Glueten Free", "is_glueten_free", db.Bool).FieldBool("true", "false")
+		info.AddField("Is Spicy", "is_spicy", db.Bool).FieldBool("true", "false")
 		info.AddField("Spice Level", "spice_level", db.Int).FieldSortable()
 		info.AddField("Calories", "calories", db.Int).FieldSortable()
-		info.AddField("Preparation Time", "preparation_time", db.Int).FieldSortable()
-		info.AddField("Is Featured", "is_featured", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_featured"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
-		info.AddField("Is Available", "is_available", db.Bool).
-			FieldDisplay(func(value types.FieldModel) interface{} {
-				if value.Row["is_available"] == true {
-					return "Yes" // Return a string or empty template.HTML
-				}
-				return "No"
-			})
+		info.AddField("Preparation Time", "preparation_time", db.Interval)
+		info.AddField("Is Featured", "is_featured", db.Bool).FieldBool("true", "false")
+		info.AddField("Is Available", "is_available", db.Bool).FieldBool("true", "false")
 		info.AddField("Stock Quantity", "stock_quantity", db.Int).FieldSortable()
 		info.AddField("Low Stock Threshold", "low_stock_threshold", db.Int).FieldSortable()
 		info.AddField("Tags", "tags", db.Text)
@@ -121,7 +91,8 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		info.SetTable("menu_items").SetTitle("Menuitems").SetDescription("Menuitems")
 
 		formList := menuItems.GetForm()
-
+		formList.AddField("Id", "id", db.UUID, form.Default).
+			FieldDisableWhenCreate()
 		formList.AddField("Restaurant Name", "restaurant_id", db.Varchar, form.SelectSingle).
 			FieldOptionsFromTable("restaurants", "name", "id").
 			FieldOnChooseAjax("category_id", "/admin/api/categories",
@@ -153,64 +124,190 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 				}).
 			FieldMust()
 		formList.AddField("Category Name", "category_id", db.Varchar, form.SelectSingle).
+			FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
+				var c types.FieldOptions
+				categories, err := db.WithDriver(dbConn).Table("categories").
+					Where("restaurant_id", "=", val.Row["restaurant_id"]).
+					Select("id", "name").
+					All()
+				if err != nil || len(categories) == 0 {
+					return nil
+				}
+				for _, v := range categories {
+					opt := types.FieldOption{
+						Text:  v["name"].(string),
+						Value: v["id"].(string)}
+					if v["id"].(string) == val.Row["category_id"].(string) {
+						opt.Selected = true
+					}
+					c = append(c, opt)
+				}
+
+				return c
+			}).
 			FieldMust()
 
 		formList.AddField("Name", "name", db.Varchar, form.Text)
 		formList.AddField("SLug", "slug", db.Varchar, form.Text)
+		formList.AddField("Price", "price", db.Decimal, form.Currency).
+			FieldDefault("10")
+		formList.AddField("Discount Price", "discount_price", db.Decimal, form.Currency).
+			FieldDefault("8")
 		formList.AddField("Image URL", "image_url", db.Varchar, form.File)
-		formList.AddField("Description", "description", db.Varchar, form.TextArea)
+		formList.AddField("Description", "description", db.Varchar, form.RichText)
 		formList.AddField("Is Vegetarian", "is_vegetarian", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
 		formList.AddField("Is Vegan", "is_vegan", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
-		formList.AddField("Is Glueten Free", "is_glueten_free", db.Bool, form.Radio).
+		formList.AddField("Is Gluten Free", "is_gluten_free", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
 		formList.AddField("Is Spicy", "is_spicy", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
 		formList.AddField("Spice Level", "spice_level", db.Int, form.Number).
-			FieldDefault("10")
+			// FieldOptionExt(map[string]interface{}{
+			// 	"min":  1,
+			// 	"max":  5,
+			// 	"step": 1,
+			// }).
+			FieldMust().
+			FieldDefault("1").
+			FieldHelpMsg("Between 1 - 5 (Include 1 and 5)")
 		formList.AddField("Calories", "calories", db.Int, form.Number).
 			FieldDefault("10")
-		formList.AddField("Preparation Time", "preparation_time", db.Int, form.Number).
-			FieldDefault("10")
+		formList.AddField("Preparation Time", "preparation_time", db.Varchar, form.Text).
+			FieldHelpMsg("Format: 00:10:00 for 10 minutes")
 		formList.AddField("Is Featured", "is_featured", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
 		formList.AddField("Is Available", "is_available", db.Bool, form.Radio).
 			FieldOptions(types.FieldOptions{
-				{Text: "Active", Value: "true"},
-				{Text: "InActive", Value: "false"},
+				{Text: "Yes", Value: "true"},
+				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
 		formList.AddField("Stock Quantity", "stock_quantity", db.Int, form.Number).
 			FieldDefault("10")
-		formList.AddField("Preparation Time", "preparation_time", db.Int, form.Number).
-			FieldDefault("10")
 		formList.AddField("Low Stock Threshold", "low_stock_threshold", db.Int, form.Number).
 			FieldDefault("10")
-		formList.AddField("Tags", "tags", db.Varchar, form.Text)
-		formList.AddField("Alergens", "alergens", db.Varchar, form.Text)
+		// TODO: multi-select for tags and alergens
+		formList.AddField("Tags", "tags", db.Varchar, form.Select).
+			// 1. Enable "Tags" mode so Enter/Comma creates a new bubble
+			FieldOptionExt(map[string]interface{}{
+				"tags":            true,
+				"tokenSeparators": []string{",", " "},
+			}).
+			// 2. Clean the data when loading from DB (stripping PostgreSQL {} braces)
+			// FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
+			// 	// 编辑时的显示，根据行数据 val 返回options
+			// 	return types.FieldOptions{
+			// 		types.FieldOption{
+			// 			Text:     val.Row["name"].(string),
+			// 			Value:    val.Row["category_id"].(string),
+			// 			Selected: true},
+			// 	}
+			// }).
+			FieldPlaceholder("Type and press Enter")
+
+		formList.AddField("Allergens", "allergens", db.Varchar, form.Select).
+			FieldOptionExt(map[string]interface{}{
+				"tags":            true,
+				"tokenSeparators": []string{",", " "},
+			}).
+			FieldPlaceholder("Type and press Enter")
 		formList.AddField("Display Order", "display_order", db.Int, form.Number).
 			FieldDefault("10")
+		formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime).
+			FieldHide().FieldNowWhenInsert()
+		// formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime).
+		// 	FieldHide().FieldNowWhenUpdate()
+
+		// rewrite update function
+		formList.SetUpdateFn(func(values form2.Values) error {
+			// 1. validate input
+			if values.IsEmpty("name", "slug") {
+				return errors.New("name and slug can not be empty")
+			}
+
+			// 2. check key exists
+			if !values.Has("tags[]") || !values.Has("allergens[]") {
+				return errors.New("tags or allergens key doesn't exist")
+			}
+
+			// 3. extract tags and allergens from values
+			tags := values["tags[]"]
+			allergens := values["allergens[]"]
+			values.Delete("tags[]")
+			values.Delete("allergens[]")
+			values.RemoveSysRemark()
+
+			// 4. start transaction
+			// _, updateUserErr := db.WithDriver(dbConn).Table("menu_items").
+			// 	Update()
+
+			_, txErr := db.WithDriver(dbConn).
+				WithTransaction(func(tx *sql.Tx) (error, map[string]interface{}) {
+					tagModel := models2.NewTag(dbConn)
+					allergenModel := models2.NewAllergen(dbConn)
+					menuItemModel := models2.NewMenuItem(dbConn)
+					menuItemTagModel := models2.NewMenuItemTag(dbConn)
+					menuItemAllergenModel := models2.NewMenuItemAllergen(dbConn)
+					// 4.1 update menu items with new data
+					updateErr := menuItemModel.UpdateMenuItem(values, tx)
+
+					if db.CheckError(updateErr, db.UPDATE) {
+						return updateErr, nil
+					}
+					// 4.2 Insert tags and menu item tags to database
+					fmt.Printf("tags value v: %v", tags)
+					// fmt.Printf("strings.Fields(tags): %v", strings.Fields(tags))
+					for _, v := range tags {
+						fmt.Printf("tag value v: %v", v)
+						tagID, err := tagModel.InsertTag(v, tx)
+						if err == nil {
+							_ = menuItemTagModel.InsertMenuItemTag(values.Get("id"), tagID, tx)
+						}
+
+					}
+					// 4.3 Insert allergens and menu item tags to database
+					// fmt.Printf("tag value v: %v", v)
+					for _, v := range allergens {
+						fmt.Printf("allergen value v: %v", v)
+						allergenID, err := allergenModel.InsertAllergen(v, tx)
+						if err == nil {
+							_ = menuItemAllergenModel.InsertMenuItemAllergen(
+								values.Get("id"),
+								allergenID,
+								tx,
+							)
+						}
+					}
+					return nil, nil
+				})
+			return txErr
+		})
+		formList.SetInsertFn(func(values form2.Values) error {
+
+			return nil
+		})
 
 		formList.SetTable("menu_items").SetTitle("Menuitems").SetDescription("Menuitems")
 
