@@ -2,11 +2,16 @@ package models
 
 import (
 	"database/sql"
+	"errors"
+	"fmt"
 	"time"
 
 	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/modules/db/dialect"
 	"github.com/google/uuid"
+)
+
+var (
+	ErrNotFound = errors.New("out of index")
 )
 
 type MenuItemTag struct {
@@ -29,14 +34,30 @@ func NewMenuItemTag(conn db.Connection) *MenuItemTag {
 }
 
 func (m *MenuItemTag) InsertMenuItemTag(menuItemID, tagID string, tx *sql.Tx) error {
+	q := `INSERT INTO menu_item_tags (menu_item_id, tag_id)
+		VALUES ($1, $2)
+		ON CONFLICT (menu_item_id, tag_id) 
+		DO NOTHING`
+	_, err := m.Conn.QueryWithTx(tx, q, menuItemID, tagID)
+	if err != nil {
+		fmt.Println("error inserting composite table: ", err)
+	}
+	return err
+}
+
+// RemoveMenuItemTags remove old menu item and tag composite key records
+func (m *MenuItemTag) RemoveMenuItemTags(menuItemID string, tagIDs []interface{}, tx *sql.Tx) error {
 	t := m.Table(m.TableName)
 	if tx != nil {
-		t = m.Table(m.TableName).WithTx(tx)
+		t = t.WithTx(tx)
 	}
-	_, err := t.Insert(dialect.H{
-		"menu_item_id": menuItemID,
-		"tag_id":       tagID,
-	})
+	q := t.Where("menu_item_id", "=", menuItemID)
+	if len(tagIDs) > 0 {
+		fmt.Println("tx deleting menu item tags: menu item id: ", menuItemID)
+		return q.WhereNotIn("tag_id", tagIDs).Delete()
+	}
 
-	return err
+	fmt.Println("deleting menu item tags: menu item id: ", menuItemID)
+	return q.Delete()
+
 }

@@ -52,12 +52,13 @@ func NewMenuItem(conn db.Connection) *MenuItem {
 func (m *MenuItem) UpdateMenuItem(item map[string][]string, tx *sql.Tx) error {
 	t := m.Table(m.TableName)
 	if tx != nil {
-		t = m.Table(m.TableName).WithTx(tx)
+		t = t.WithTx(tx)
 	}
 	// 4.2 update menu items with new data
 	itemData := make(dialect.H)
 	for k, v := range item {
 		if k != "id" && len(v) > 0 && !strings.Contains(k, "__") {
+			fmt.Println("item data k: ", k, ", v: ", v[0])
 			itemData[k] = v[0]
 		}
 	}

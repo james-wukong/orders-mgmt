@@ -216,21 +216,56 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 				"tokenSeparators": []string{",", " "},
 			}).
 			// 2. Clean the data when loading from DB (stripping PostgreSQL {} braces)
-			// FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
-			// 	// 编辑时的显示，根据行数据 val 返回options
-			// 	return types.FieldOptions{
-			// 		types.FieldOption{
-			// 			Text:     val.Row["name"].(string),
-			// 			Value:    val.Row["category_id"].(string),
-			// 			Selected: true},
-			// 	}
-			// }).
+			FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
+				// 编辑时的显示，根据行数据 val 返回options
+				var c types.FieldOptions
+				tags, _ := db.WithDriver(dbConn).Table("menu_item_tags").
+					LeftJoin("tags", "tags.id", "=", "menu_item_tags.tag_id").
+					Where("menu_item_tags.menu_item_id", "=", val.Row["id"]).
+					Select("id", "name").
+					All()
+				if len(tags) == 0 {
+					return nil
+				}
+				for _, v := range tags {
+					opt := types.FieldOption{
+						Text:     v["name"].(string),
+						Value:    v["name"].(string),
+						Selected: true,
+					}
+					c = append(c, opt)
+				}
+
+				return c
+			}).
 			FieldPlaceholder("Type and press Enter")
 
 		formList.AddField("Allergens", "allergens", db.Varchar, form.Select).
 			FieldOptionExt(map[string]interface{}{
 				"tags":            true,
 				"tokenSeparators": []string{",", " "},
+			}).
+			FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
+				// 编辑时的显示，根据行数据 val 返回options
+				var c types.FieldOptions
+				allergens, _ := db.WithDriver(dbConn).Table("menu_item_allergens").
+					LeftJoin("allergens", "allergens.id", "=", "menu_item_allergens.allergen_id").
+					Where("menu_item_allergens.menu_item_id", "=", val.Row["id"]).
+					Select("id", "name").
+					All()
+				if len(allergens) == 0 {
+					return nil
+				}
+				for _, v := range allergens {
+					opt := types.FieldOption{
+						Text:     v["name"].(string),
+						Value:    v["name"].(string),
+						Selected: true,
+					}
+					c = append(c, opt)
+				}
+
+				return c
 			}).
 			FieldPlaceholder("Type and press Enter")
 		formList.AddField("Display Order", "display_order", db.Int, form.Number).
@@ -246,23 +281,13 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 			if values.IsEmpty("name", "slug") {
 				return errors.New("name and slug can not be empty")
 			}
-
-			// 2. check key exists
-			if !values.Has("tags[]") || !values.Has("allergens[]") {
-				return errors.New("tags or allergens key doesn't exist")
-			}
-
-			// 3. extract tags and allergens from values
-			tags := values["tags[]"]
-			allergens := values["allergens[]"]
-			values.Delete("tags[]")
-			values.Delete("allergens[]")
 			values.RemoveSysRemark()
+			tags := values["tags[]"]
+			values.Delete("tags[]")
+			allergens := values["allergens[]"]
+			values.Delete("allergens[]")
 
-			// 4. start transaction
-			// _, updateUserErr := db.WithDriver(dbConn).Table("menu_items").
-			// 	Update()
-
+			// 2. start transaction
 			_, txErr := db.WithDriver(dbConn).
 				WithTransaction(func(tx *sql.Tx) (error, map[string]interface{}) {
 					tagModel := models2.NewTag(dbConn)
@@ -270,40 +295,49 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 					menuItemModel := models2.NewMenuItem(dbConn)
 					menuItemTagModel := models2.NewMenuItemTag(dbConn)
 					menuItemAllergenModel := models2.NewMenuItemAllergen(dbConn)
-					// 4.1 update menu items with new data
+					// 2.1 update menu items with new data
 					updateErr := menuItemModel.UpdateMenuItem(values, tx)
 
 					if db.CheckError(updateErr, db.UPDATE) {
 						return updateErr, nil
 					}
-					// 4.2 Insert tags and menu item tags to database
-					fmt.Printf("tags value v: %v", tags)
-					// fmt.Printf("strings.Fields(tags): %v", strings.Fields(tags))
-					for _, v := range tags {
-						fmt.Printf("tag value v: %v", v)
-						tagID, err := tagModel.InsertTag(v, tx)
-						if err == nil {
-							_ = menuItemTagModel.InsertMenuItemTag(values.Get("id"), tagID, tx)
-						}
+					// 2.2 Insert tags and menu item tags to database
+					if len(tags) > 0 {
+						tagIDs := []interface{}{}
+						for _, v := range tags {
+							tagID, err := tagModel.UpsertTag(v, tx)
+							if err == nil {
+								_ = menuItemTagModel.InsertMenuItemTag(values.Get("id"), tagID, tx)
+							}
+							tagIDs = append(tagIDs, tagID)
 
-					}
-					// 4.3 Insert allergens and menu item tags to database
-					// fmt.Printf("tag value v: %v", v)
-					for _, v := range allergens {
-						fmt.Printf("allergen value v: %v", v)
-						allergenID, err := allergenModel.InsertAllergen(v, tx)
-						if err == nil {
-							_ = menuItemAllergenModel.InsertMenuItemAllergen(
-								values.Get("id"),
-								allergenID,
-								tx,
-							)
 						}
+						// 2.4 Remove old records in composite table
+						menuItemTagModel.RemoveMenuItemTags(values.Get("id"), tagIDs, tx)
+					}
+					// 2.3 Insert allergens and menu item tags to database
+					if len(allergens) > 0 {
+						allergenIDs := []interface{}{}
+						for _, v := range allergens {
+							allergenID, err := allergenModel.UpsertAllergen(v, tx)
+							if err == nil {
+								_ = menuItemAllergenModel.InsertMenuItemAllergen(
+									values.Get("id"),
+									allergenID,
+									tx,
+								)
+							}
+							allergenIDs = append(allergenIDs, allergenID)
+						}
+						// 2.4 Remove old records in composite table
+						menuItemAllergenModel.RemoveMenuItemAllergens(values.Get("id"), allergenIDs, tx)
 					}
 					return nil, nil
 				})
+			fmt.Println("itxErr : ", txErr)
 			return txErr
 		})
+
 		formList.SetInsertFn(func(values form2.Values) error {
 
 			return nil

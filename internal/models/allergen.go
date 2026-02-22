@@ -2,6 +2,7 @@ package models
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 	"time"
 
@@ -27,29 +28,53 @@ func NewAllergen(conn db.Connection) *Allergen {
 	}
 }
 
-func (m *Allergen) InsertAllergen(name string, tx *sql.Tx) (string, error) {
-	// 1. Try to find the tag by name
-	id, err := m.GetAllergenIDByName(name)
-	if err == nil {
-		return id, nil
+func (m *Allergen) UpsertAllergen(name string, tx *sql.Tx) (string, error) {
+	// 1. Upsert a tag
+	var (
+		allergenID []map[string]interface{}
+		err        error
+		id         string
+	)
+	q := `INSERT INTO allergens (name) VALUES ($1) 
+	ON CONFLICT (name) 
+	DO UPDATE SET updated_at = NOW()
+	RETURNING id`
+	if tx != nil {
+		allergenID, err = m.Conn.QueryWithTx(tx, q, name)
+	} else {
+		allergenID, err = m.Conn.Query(q, name)
 	}
-	// 2. Insert if not found
-	q := "INSERT INTO allergens (name) VALUES ($1) RETURNING id"
-	allergenID, err := m.Conn.QueryWithTx(tx, q, name)
+	// 2. Handle potential SQL errors immediately
 	if err != nil {
-		fmt.Println("err during getting allergen id", name, err)
-		return "", err
+		return "", fmt.Errorf("upsert allergen error: %v", err)
 	}
-	return allergenID[0]["id"].(string), err
+	// 3. Safe extraction of the ID
+	rawID, ok := allergenID[0]["id"]
+	if !ok || rawID == nil {
+		return "", errors.New("upsert allergen: id field missing from result")
+	}
+
+	// 4. Flexible type conversion (handles string or []byte)
+	switch v := rawID.(type) {
+	case string:
+		id = v
+	case []byte:
+		id = string(v)
+	default:
+		id = fmt.Sprintf("%v", v)
+	}
+
+	fmt.Println("inserted allergen id: ", id)
+	return id, nil
 }
 
 func (m *Allergen) GetAllergenIDByName(name string) (string, error) {
-	allergen, err := m.Table(m.TableName).
+	allergen, _ := m.Table(m.TableName).
 		Where("name", "=", name).
 		First()
-	if err == nil && len(allergen) > 0 {
+	if len(allergen) > 0 {
 		return allergen["id"].(string), nil
 	}
 
-	return "", err
+	return "", nil
 }

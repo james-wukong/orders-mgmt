@@ -2,10 +2,10 @@ package models
 
 import (
 	"database/sql"
+	"fmt"
 	"time"
 
 	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/modules/db/dialect"
 	"github.com/google/uuid"
 )
 
@@ -29,14 +29,35 @@ func NewMenuItemAllergen(conn db.Connection) *MenuItemAllergen {
 }
 
 func (m *MenuItemAllergen) InsertMenuItemAllergen(menuItemID, allergenID string, tx *sql.Tx) error {
+	q := `INSERT INTO menu_item_allergens (menu_item_id, allergen_id)
+		VALUES ($1, $2)
+		ON CONFLICT (menu_item_id, allergen_id) 
+		DO NOTHING`
+	_, err := m.Conn.QueryWithTx(tx, q, menuItemID, allergenID)
+	if err != nil {
+		fmt.Println("error inserting composite table: ", err)
+	}
+	return err
+}
+
+// RemoveMenuItemAllergens remove old menu item and allergen composite key records
+func (m *MenuItemAllergen) RemoveMenuItemAllergens(
+	menuItemID string,
+	allergenIDs []interface{},
+	tx *sql.Tx,
+) error {
 	t := m.Table(m.TableName)
 	if tx != nil {
-		t = m.Table(m.TableName).WithTx(tx)
+		t = t.WithTx(tx)
 	}
-	_, err := t.Insert(dialect.H{
-		"menu_item_id": menuItemID,
-		"allergen_id":  allergenID,
-	})
+	q := t.Where("menu_item_id", "=", menuItemID)
+	if len(allergenIDs) > 0 {
 
-	return err
+		fmt.Println("tx deleting menu item allergens: menu item id: ", menuItemID)
+		return q.WhereNotIn("allergen_id", allergenIDs).Delete()
+	}
+
+	fmt.Println("deleting menu item allergens: menu item id: ", menuItemID)
+	return q.Delete()
+
 }

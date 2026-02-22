@@ -2,6 +2,7 @@ package models
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 	"time"
 
@@ -27,29 +28,61 @@ func NewTag(conn db.Connection) *Tag {
 	}
 }
 
-func (m *Tag) InsertTag(name string, tx *sql.Tx) (string, error) {
-	// 1. Try to find the tag by name
-	id, err := m.GetTagIDByName(name)
-	if err == nil {
-		return id, nil
+func (m *Tag) UpsertTag(name string, tx *sql.Tx) (string, error) {
+	// 1. Upsert a tag
+	var (
+		tagID []map[string]interface{}
+		err   error
+		id    string
+	)
+	fmt.Println("1=================", name)
+	q := `INSERT INTO tags (name) VALUES ($1) 
+	ON CONFLICT (name) 
+	DO UPDATE SET updated_at = NOW()
+	RETURNING id`
+	if tx != nil {
+		tagID, err = m.Conn.QueryWithTx(tx, q, name)
+	} else {
+		tagID, err = m.Conn.Query(q, name)
 	}
-	// 2. Insert if not found
-	q := "INSERT INTO tags (name) VALUES ($1) RETURNING id"
-	tagID, err := m.Conn.QueryWithTx(tx, q, name)
+	// 2. Handle potential SQL errors immediately
+	fmt.Println("2=================")
 	if err != nil {
-		fmt.Println("err during getting tag id", name, err)
-		return "", err
+		fmt.Println("error inserting tag: ", err)
+		return "", fmt.Errorf("upsert tag error: %v", err)
 	}
-	return tagID[0]["id"].(string), err
+	// 3. Safe extraction of the ID
+
+	fmt.Println("3=================")
+	rawID, ok := tagID[0]["id"]
+	if !ok || rawID == nil {
+		fmt.Println("error extraction of the ID")
+		return "", errors.New("upsert tag: id field missing from result")
+	}
+
+	// 4. Flexible type conversion (handles string or []byte)
+
+	fmt.Println("4=================")
+	switch v := rawID.(type) {
+	case string:
+		id = v
+	case []byte:
+		id = string(v)
+	default:
+		id = fmt.Sprintf("%v", v)
+	}
+
+	fmt.Println("inserted tag id: ", id)
+	return id, nil
 }
 
 func (m *Tag) GetTagIDByName(name string) (string, error) {
-	tag, err := m.Table(m.TableName).
+	tag, _ := m.Table(m.TableName).
 		Where("name", "=", name).
 		First()
-	if err == nil && len(tag) > 0 {
+	if len(tag) > 0 {
 		return tag["id"].(string), nil
 	}
 
-	return "", err
+	return "", nil
 }
