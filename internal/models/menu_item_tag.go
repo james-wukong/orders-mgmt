@@ -17,11 +17,11 @@ var (
 type MenuItemTag struct {
 	Base
 
-	MenuItemID uuid.UUID `gorm:"type:uuid;not null" json:"menu_item_id"`
-	TagID      uuid.UUID `gorm:"type:uuid;not null" json:"tag_id"`
+	MenuItemID uuid.UUID `json:"menu_item_id"`
+	TagID      uuid.UUID `json:"tag_id"`
 
-	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func NewMenuItemTag(conn db.Connection) *MenuItemTag {
@@ -34,6 +34,7 @@ func NewMenuItemTag(conn db.Connection) *MenuItemTag {
 }
 
 func (m *MenuItemTag) InsertMenuItemTag(menuItemID, tagID string, tx *sql.Tx) error {
+	fmt.Println("start inserting composite table: tag", tagID, ", menu: ", menuItemID)
 	q := `INSERT INTO menu_item_tags (menu_item_id, tag_id)
 		VALUES ($1, $2)
 		ON CONFLICT (menu_item_id, tag_id) 

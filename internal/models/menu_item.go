@@ -2,7 +2,9 @@ package models
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
+	"slices"
 	"strings"
 	"time"
 
@@ -14,30 +16,30 @@ import (
 type MenuItem struct {
 	Base
 
-	ID                uuid.UUID  `gorm:"type:uuid;primaryKey;default:gen_random_uuid()" json:"id"`
-	RestaurantID      uuid.UUID  `gorm:"type:uuid;not null" json:"restaurant_id"`
-	CategoryID        *uuid.UUID `gorm:"type:uuid" json:"category_id"` // Pointer for nullable field
-	Name              string     `gorm:"type:varchar(255);not null" json:"name"`
-	Slug              string     `gorm:"type:varchar(255);not null" json:"slug"`
-	Description       string     `gorm:"type:text" json:"description"`
-	Price             float64    `gorm:"type:decimal(10,2);not null" json:"price"`
-	DiscountPrice     *float64   `gorm:"type:decimal(10,2)" json:"discount_price"`
-	ImageURL          string     `gorm:"type:text" json:"image_url"`
-	IsVegetarian      bool       `gorm:"default:false" json:"is_vegetarian"`
-	IsVegan           bool       `gorm:"default:false" json:"is_vegan"`
-	IsGlutenFree      bool       `gorm:"default:false" json:"is_gluten_free"`
-	IsSpicy           bool       `gorm:"default:false" json:"is_spicy"`
-	SpiceLevel        int        `gorm:"type:integer" json:"spice_level"`
-	Calories          int        `gorm:"type:integer" json:"calories"`
-	PreparationTime   int        `gorm:"type:integer" json:"preparation_time"`
-	IsAvailable       bool       `gorm:"default:true" json:"is_available"`
-	IsFeatured        bool       `gorm:"default:false" json:"is_featured"`
-	StockQuantity     int        `gorm:"type:integer" json:"stock_quantity"`
-	LowStockThreshold int        `gorm:"type:integer;default:10" json:"low_stock_threshold"`
-	Allergens         []string   `gorm:"type:text[]" json:"allergens"`
-	DisplayOrder      int        `gorm:"type:integer;default:0" json:"display_order"`
-	CreatedAt         time.Time  `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt         time.Time  `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	ID                uuid.UUID  `json:"id"`
+	RestaurantID      uuid.UUID  `json:"restaurant_id"`
+	CategoryID        *uuid.UUID `json:"category_id"` // Pointer for nullable field
+	Name              string     `json:"name"`
+	Slug              string     `json:"slug"`
+	Description       string     `json:"description"`
+	Price             float64    `json:"price"`
+	DiscountPrice     *float64   `json:"discount_price"`
+	ImageURL          string     `json:"image_url"`
+	IsVegetarian      bool       `json:"is_vegetarian"`
+	IsVegan           bool       `json:"is_vegan"`
+	IsGlutenFree      bool       `json:"is_gluten_free"`
+	IsSpicy           bool       `json:"is_spicy"`
+	SpiceLevel        int        `json:"spice_level"`
+	Calories          int        `json:"calories"`
+	PreparationTime   int        `json:"preparation_time"`
+	IsAvailable       bool       `json:"is_available"`
+	IsFeatured        bool       `json:"is_featured"`
+	StockQuantity     int        `json:"stock_quantity"`
+	LowStockThreshold int        `json:"low_stock_threshold"`
+	Allergens         []string   `json:"allergens"`
+	DisplayOrder      int        `json:"display_order"`
+	CreatedAt         time.Time  `json:"created_at"`
+	UpdatedAt         time.Time  `json:"updated_at"`
 }
 
 func NewMenuItem(conn db.Connection) *MenuItem {
@@ -58,7 +60,7 @@ func (m *MenuItem) UpdateMenuItem(item map[string][]string, tx *sql.Tx) error {
 	itemData := make(dialect.H)
 	for k, v := range item {
 		if k != "id" && len(v) > 0 && !strings.Contains(k, "__") {
-			fmt.Println("item data k: ", k, ", v: ", v[0])
+			// fmt.Println("item data k: ", k, ", v: ", v[0])
 			itemData[k] = v[0]
 		}
 	}
@@ -70,4 +72,41 @@ func (m *MenuItem) UpdateMenuItem(item map[string][]string, tx *sql.Tx) error {
 		return updateErr
 	}
 	return nil
+}
+
+func (m *MenuItem) CreateMenuItem(item map[string][]string, tx *sql.Tx) (string, error) {
+	var (
+		columns      []string
+		placeholders []string
+		values       []interface{}
+	)
+
+	i := 1
+	excludes := []string{"id", "created_at", "updated_at"}
+	for k, v := range item {
+		if !slices.Contains(excludes, k) && len(v) > 0 && !strings.Contains(k, "__") {
+			fmt.Println("item data k: ", k, ", v: ", v[0])
+			// itemData[k] = v[0]
+			columns = append(columns, k)
+			placeholders = append(placeholders, fmt.Sprintf("$%d", i))
+			values = append(values, v[0])
+			i++
+		}
+	}
+	q := fmt.Sprintf(
+		"INSERT INTO %s (%s) VALUES (%s) ON CONFLICT (restaurant_id, slug) DO NOTHING RETURNING id",
+		m.TableName,
+		strings.Join(columns, ", "),
+		strings.Join(placeholders, ", "),
+	)
+
+	row, err := m.Conn.QueryWithTx(tx, q, values...)
+	if err != nil {
+		return "", err
+	}
+
+	if len(row) > 0 {
+		return row[0]["id"].(string), nil
+	}
+	return "", errors.New("no id returned")
 }

@@ -19,13 +19,29 @@ import (
 // "categories" => http://localhost:9033/admin/info/categories
 // "restaurants" => http://localhost:9033/admin/info/restaurants
 // "menu_item_images" => http://localhost:9033/admin/info/menu_item_images
+// "recipes" => http://localhost:9033/admin/info/recipes
+// "units_of_measure" => http://localhost:9033/admin/info/units_of_measure
+// "ingredient_categories" => http://localhost:9033/admin/info/ingredient_categories
+// "suppliers" => http://localhost:9033/admin/info/suppliers
+// "users" => http://localhost:9033/admin/info/users
+// "user_sessions" => http://localhost:9033/admin/info/user_sessions
+// "delivery_addresses" => http://localhost:9033/admin/info/delivery_addresses
+// "carts" => http://localhost:9033/admin/info/carts
+// "cart_items" => http://localhost:9033/admin/info/cart_items
 //
 // example end
 var Generators = map[string]table.Generator{
 
-	"categories":       GetCategoriesTable,
-	"restaurants":      GetRestaurantsTable,
-	"menu_item_images": GetMenuitemimagesTable,
+	"categories":            GetCategoriesTable,
+	"restaurants":           GetRestaurantsTable,
+	"units_of_measure":      GetUnitsofmeasureTable,
+	"ingredient_categories": GetIngredientcategoriesTable,
+	"suppliers":             GetSuppliersTable,
+	// "users":                 GetUsersTable,
+	"user_sessions":      GetUsersessionsTable,
+	"delivery_addresses": GetDeliveryaddressesTable,
+	"carts":              GetCartsTable,
+	"cart_items":         GetCartitemsTable,
 
 	// generators end
 }
@@ -33,7 +49,10 @@ var Generators = map[string]table.Generator{
 // GetGenerators collects tables that require dbConn
 func GetGenerators(dbConn db.Connection) table.GeneratorList {
 	return table.GeneratorList{
-		"menu_items": GetMenuitemsTable(dbConn),
+		"menu_items":       GetMenuitemsTable(dbConn),
+		"menu_item_images": GetMenuitemimagesTable(dbConn),
+		"recipes":          GetRecipesTable(dbConn),
+		"users":            GetUsersTable(dbConn),
 		// Add more tables...
 	}
 }

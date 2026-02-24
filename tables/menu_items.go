@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/GoAdminGroup/go-admin/context"    // 需导入此包
 	"github.com/GoAdminGroup/go-admin/modules/db" // 需导入此包
@@ -21,7 +22,7 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 
 		menuItems := table.NewDefaultTable(ctx, table.DefaultConfigWithDriver("postgresql"))
 
-		info := menuItems.GetInfo().HideFilterArea()
+		info := menuItems.GetInfo().HideFilterArea().SetPrimaryKey("id", db.UUID)
 		info.AddField("ID", "id", db.UUID).
 			FieldDisplay(func(value types.FieldModel) interface{} {
 				if val, ok := value.Row["id"].(string); ok {
@@ -74,7 +75,7 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		info.AddField("Discount Price", "discount_price", db.Float).FieldSortable()
 		info.AddField("Is Vegetarian", "is_vegetarian", db.Bool).FieldBool("true", "false")
 		info.AddField("Is Vegan", "is_vegan", db.Bool).FieldBool("true", "false")
-		info.AddField("Is Glueten Free", "is_glueten_free", db.Bool).FieldBool("true", "false")
+		info.AddField("Is Gluten Free", "is_gluten_free", db.Bool).FieldBool("true", "false")
 		info.AddField("Is Spicy", "is_spicy", db.Bool).FieldBool("true", "false")
 		info.AddField("Spice Level", "spice_level", db.Int).FieldSortable()
 		info.AddField("Calories", "calories", db.Int).FieldSortable()
@@ -88,9 +89,9 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		info.AddField("Image", "image_url", db.Varchar).FieldImage("50", "50",
 			"http://localhost:8081/uploads/")
 		info.SetSortField("created_at").SetSortDesc()
-		info.SetTable("menu_items").SetTitle("Menuitems").SetDescription("Menuitems")
+		info.SetTable("menu_items").SetTitle("Menu Items").SetDescription("Menu Items")
 
-		formList := menuItems.GetForm()
+		formList := menuItems.GetForm().SetPrimaryKey("id", db.UUID)
 		formList.AddField("Id", "id", db.UUID, form.Default).
 			FieldDisableWhenCreate()
 		formList.AddField("Restaurant Name", "restaurant_id", db.Varchar, form.SelectSingle).
@@ -153,27 +154,32 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 			FieldDefault("10")
 		formList.AddField("Discount Price", "discount_price", db.Decimal, form.Currency).
 			FieldDefault("8")
-		formList.AddField("Image URL", "image_url", db.Varchar, form.File)
+		formList.AddField("Image URL", "image_url", db.Varchar, form.File).
+			FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+				// value.Value contains the path GoAdmin generated
+				fmt.Println("File saved at:", value.Value)
+				return value
+			})
 		formList.AddField("Description", "description", db.Varchar, form.RichText)
-		formList.AddField("Is Vegetarian", "is_vegetarian", db.Bool, form.Radio).
+		formList.AddField("Is Vegetarian", "is_vegetarian", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
-		formList.AddField("Is Vegan", "is_vegan", db.Bool, form.Radio).
+		formList.AddField("Is Vegan", "is_vegan", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
-		formList.AddField("Is Gluten Free", "is_gluten_free", db.Bool, form.Radio).
+		formList.AddField("Is Gluten Free", "is_gluten_free", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
-		formList.AddField("Is Spicy", "is_spicy", db.Bool, form.Radio).
+		formList.AddField("Is Spicy", "is_spicy", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
@@ -192,13 +198,13 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 			FieldDefault("10")
 		formList.AddField("Preparation Time", "preparation_time", db.Varchar, form.Text).
 			FieldHelpMsg("Format: 00:10:00 for 10 minutes")
-		formList.AddField("Is Featured", "is_featured", db.Bool, form.Radio).
+		formList.AddField("Is Featured", "is_featured", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
 			}).
 			FieldDefault("false")
-		formList.AddField("Is Available", "is_available", db.Bool, form.Radio).
+		formList.AddField("Is Available", "is_available", db.Bool, form.Switch).
 			FieldOptions(types.FieldOptions{
 				{Text: "Yes", Value: "true"},
 				{Text: "No", Value: "false"},
@@ -271,9 +277,11 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 		formList.AddField("Display Order", "display_order", db.Int, form.Number).
 			FieldDefault("10")
 		formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime).
+			FieldDefault(time.Now().Format("2006-01-02 15:04:05")). // Set initial value
 			FieldHide().FieldNowWhenInsert()
-		// formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime).
-		// 	FieldHide().FieldNowWhenUpdate()
+		formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime).
+			FieldDefault(time.Now().Format("2006-01-02 15:04:05")). // Set initial value
+			FieldHide().FieldNowWhenUpdate()
 
 		// rewrite update function
 		formList.SetUpdateFn(func(values form2.Values) error {
@@ -296,11 +304,8 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 					menuItemTagModel := models2.NewMenuItemTag(dbConn)
 					menuItemAllergenModel := models2.NewMenuItemAllergen(dbConn)
 					// 2.1 update menu items with new data
-					updateErr := menuItemModel.UpdateMenuItem(values, tx)
+					_ = menuItemModel.UpdateMenuItem(values, tx)
 
-					if db.CheckError(updateErr, db.UPDATE) {
-						return updateErr, nil
-					}
 					// 2.2 Insert tags and menu item tags to database
 					if len(tags) > 0 {
 						tagIDs := []interface{}{}
@@ -338,12 +343,59 @@ func GetMenuitemsTable(dbConn db.Connection) table.Generator {
 			return txErr
 		})
 
+		// TODO: update insert function
 		formList.SetInsertFn(func(values form2.Values) error {
+			// 1. validate input
+			if values.IsEmpty("name", "slug") {
+				return errors.New("name and slug can not be empty")
+			}
+			values.RemoveSysRemark()
+			tags := values["tags[]"]
+			values.Delete("tags[]")
+			allergens := values["allergens[]"]
+			values.Delete("allergens[]")
 
-			return nil
+			// 2. start transaction
+			_, txErr := db.WithDriver(dbConn).
+				WithTransaction(func(tx *sql.Tx) (error, map[string]interface{}) {
+					tagModel := models2.NewTag(dbConn)
+					allergenModel := models2.NewAllergen(dbConn)
+					menuItemModel := models2.NewMenuItem(dbConn)
+					menuItemTagModel := models2.NewMenuItemTag(dbConn)
+					menuItemAllergenModel := models2.NewMenuItemAllergen(dbConn)
+					// 2.1 update menu items with new data
+					menuItemID, _ := menuItemModel.CreateMenuItem(values, tx)
+
+					// 2.2 Insert tags and menu item tags to database
+					if len(tags) > 0 {
+						for _, v := range tags {
+							tagID, err := tagModel.UpsertTag(v, tx)
+							if err == nil {
+								_ = menuItemTagModel.InsertMenuItemTag(menuItemID, tagID, tx)
+							}
+
+						}
+					}
+					// 2.3 Insert allergens and menu item tags to database
+					if len(allergens) > 0 {
+						for _, v := range allergens {
+							allergenID, err := allergenModel.UpsertAllergen(v, tx)
+							if err == nil {
+								_ = menuItemAllergenModel.InsertMenuItemAllergen(
+									menuItemID,
+									allergenID,
+									tx,
+								)
+							}
+						}
+					}
+					return nil, nil
+				})
+			fmt.Println("itxErr : ", txErr)
+			return txErr
 		})
 
-		formList.SetTable("menu_items").SetTitle("Menuitems").SetDescription("Menuitems")
+		formList.SetTable("menu_items").SetTitle("Menu Items").SetDescription("Menu Items")
 
 		return menuItems
 	}

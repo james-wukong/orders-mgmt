@@ -13,10 +13,10 @@ import (
 type Tag struct {
 	Base
 
-	ID        uuid.UUID `gorm:"type:uuid;primaryKey;default:gen_random_uuid()" json:"id"`
-	Name      string    `gorm:"type:varchar(255);not null" json:"name"`
-	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	ID        uuid.UUID `json:"id"`
+	Name      string    `json:"name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func NewTag(conn db.Connection) *Tag {
@@ -35,7 +35,6 @@ func (m *Tag) UpsertTag(name string, tx *sql.Tx) (string, error) {
 		err   error
 		id    string
 	)
-	fmt.Println("1=================", name)
 	q := `INSERT INTO tags (name) VALUES ($1) 
 	ON CONFLICT (name) 
 	DO UPDATE SET updated_at = NOW()
@@ -46,14 +45,11 @@ func (m *Tag) UpsertTag(name string, tx *sql.Tx) (string, error) {
 		tagID, err = m.Conn.Query(q, name)
 	}
 	// 2. Handle potential SQL errors immediately
-	fmt.Println("2=================")
 	if err != nil {
 		fmt.Println("error inserting tag: ", err)
 		return "", fmt.Errorf("upsert tag error: %v", err)
 	}
 	// 3. Safe extraction of the ID
-
-	fmt.Println("3=================")
 	rawID, ok := tagID[0]["id"]
 	if !ok || rawID == nil {
 		fmt.Println("error extraction of the ID")
@@ -61,8 +57,6 @@ func (m *Tag) UpsertTag(name string, tx *sql.Tx) (string, error) {
 	}
 
 	// 4. Flexible type conversion (handles string or []byte)
-
-	fmt.Println("4=================")
 	switch v := rawID.(type) {
 	case string:
 		id = v

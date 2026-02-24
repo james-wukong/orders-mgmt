@@ -12,11 +12,11 @@ import (
 type MenuItemAllergen struct {
 	Base
 
-	MenuItemID uuid.UUID `gorm:"type:uuid;not null" json:"menu_item_id"`
-	AllergenID uuid.UUID `gorm:"type:uuid;not null" json:"allergen_id"`
+	MenuItemID uuid.UUID `json:"menu_item_id"`
+	AllergenID uuid.UUID `json:"allergen_id"`
 
-	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func NewMenuItemAllergen(conn db.Connection) *MenuItemAllergen {

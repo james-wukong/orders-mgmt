@@ -1,6 +1,8 @@
 package tables
 
 import (
+	"time"
+
 	"github.com/GoAdminGroup/go-admin/context"
 	"github.com/GoAdminGroup/go-admin/modules/db"
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
@@ -12,7 +14,7 @@ func GetCategoriesTable(ctx *context.Context) table.Table {
 
 	categories := table.NewDefaultTable(ctx, table.DefaultConfigWithDriver("postgresql"))
 
-	info := categories.GetInfo()
+	info := categories.GetInfo().SetPrimaryKey("id", db.UUID)
 
 	info.AddField("Id", "id", db.UUID).
 		FieldDisplay(func(value types.FieldModel) interface{} {
@@ -57,28 +59,33 @@ func GetCategoriesTable(ctx *context.Context) table.Table {
 
 	info.SetTable("categories").SetTitle("Categories").SetDescription("Categories")
 
-	formList := categories.GetForm()
+	formList := categories.GetForm().SetPrimaryKey("id", db.UUID)
 	formList.AddField("Id", "id", db.UUID, form.Default).
 		FieldDisableWhenCreate()
 	formList.AddField("Restaurant Name", "restaurant_id", db.Varchar, form.SelectSingle).
 		FieldOptionsFromTable("restaurants", "name", "id").
 		FieldPlaceholder("Please select a restaurant").
 		FieldMust()
-	formList.AddField("Name", "name", db.Varchar, form.Text)
-	formList.AddField("Slug", "slug", db.Varchar, form.Text)
+	formList.AddField("Name", "name", db.Varchar, form.Text).
+		FieldMust()
+	formList.AddField("Slug", "slug", db.Varchar, form.Text).
+		FieldMust()
 	formList.AddField("Description", "description", db.Text, form.RichText)
 	formList.AddField("Image URL", "image_url", db.Varchar, form.File)
 	formList.AddField("Display Order", "display_order", db.Int, form.Number).
-		FieldDefault("10")
-	formList.AddField("Is Active", "is_active", db.Bool, form.Radio).
+		FieldDefault("10").
+		FieldMust()
+	formList.AddField("Is Active", "is_active", db.Bool, form.Switch).
 		FieldOptions(types.FieldOptions{
 			{Text: "Active", Value: "true"},
 			{Text: "InActive", Value: "false"},
 		}).
 		FieldDefault("false")
 	formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime).
+		FieldDefault(time.Now().Format("2006-01-02 15:04:05")). // Set initial value
 		FieldHide().FieldNowWhenInsert()
 	formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime).
+		FieldDefault(time.Now().Format("2006-01-02 15:04:05")). // Set initial value
 		FieldHide().FieldNowWhenUpdate()
 
 	formList.SetTable("categories").SetTitle("Categories").SetDescription("Categories")
